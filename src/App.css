@@ -1,0 +1,358 @@
+.app-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.theme-toggle {
+  background: #ffffff;
+  border: 1px solid #d9ddea;
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(25, 28, 45, 0.1);
+  color: #171725;
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin-left: auto;
+  padding: 10px 16px;
+}
+
+.theme-toggle:hover {
+  border-color: #00d9ff;
+  box-shadow: 0 0 22px rgba(0, 217, 255, 0.3);
+}
+
+.hero-panel {
+  padding: 34px 0 28px;
+}
+
+.eyebrow {
+  color: #00a9c9;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.hero-panel h1 {
+  color: #15151f;
+  font-size: clamp(2.4rem, 7vw, 5.6rem);
+  line-height: 0.92;
+  margin: 0;
+}
+
+.hero-panel p:last-child {
+  color: #5f6170;
+  margin: 18px auto 0;
+  max-width: 640px;
+}
+
+.duel-stage {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 28px;
+}
+
+.track-card {
+  animation: cardEnter 0.7s ease both;
+  background:
+    radial-gradient(circle at top left, rgba(0, 229, 255, 0.16), transparent 34%),
+    linear-gradient(145deg, #ffffff, #f8f9ff);
+  border: 1px solid #e5e8f3;
+  border-radius: 8px;
+  box-shadow: 0 22px 60px rgba(25, 28, 45, 0.12);
+  min-height: 360px;
+  overflow: hidden;
+  padding: 28px;
+  position: relative;
+  text-align: left;
+}
+
+.track-card:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.track-card::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+  content: '';
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 62px;
+}
+
+.track-card.cyan {
+  --neon: #00d9ff;
+}
+
+.track-card.pink {
+  --neon: #ff3eb5;
+}
+
+.track-card.winner {
+  border-color: color-mix(in srgb, var(--neon) 70%, white);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--neon) 45%, transparent),
+    0 0 36px color-mix(in srgb, var(--neon) 28%, transparent),
+    0 22px 60px rgba(25, 28, 45, 0.14);
+}
+
+.track-card.pulse {
+  animation: cardEnter 0.7s ease both, votePulse 0.45s ease;
+}
+
+.crown-badge {
+  animation: badgePulse 1.3s ease-in-out infinite;
+  background: #15151f;
+  border: 1px solid var(--neon);
+  border-radius: 999px;
+  box-shadow: 0 0 20px color-mix(in srgb, var(--neon) 55%, transparent);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 8px 12px;
+  position: absolute;
+  right: 20px;
+  top: 18px;
+}
+
+.genre {
+  color: var(--neon);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.track-card h2 {
+  color: #171725;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 0.95;
+  margin: 74px 0 12px;
+}
+
+.artist {
+  color: #6b6d7d;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.mood {
+  color: #8a8fa3;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.track-card button {
+  background: #171725;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 24px color-mix(in srgb, var(--neon) 38%, transparent);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  padding: 13px 18px;
+}
+
+.track-card button:hover {
+  background: var(--neon);
+  color: #101018;
+}
+
+.votes {
+  bottom: 24px;
+  color: #15151f;
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin: 0;
+  position: absolute;
+  right: 28px;
+}
+
+.total-votes {
+  color: #6b6d7d;
+  font-weight: 700;
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+.dark-theme .total-votes {
+  color: #b8bfd3;
+}
+
+.vote-board {
+  background: #ffffff;
+  border: 1px solid #e5e8f3;
+  border-radius: 8px;
+  box-shadow: 0 18px 44px rgba(25, 28, 45, 0.1);
+  margin-top: 22px;
+  padding: 22px;
+}
+
+.leader-strip {
+  align-items: center;
+  color: #15151f;
+  display: flex;
+  font-weight: 900;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.live-dot {
+  animation: dotPulse 1.1s ease-in-out infinite;
+  background: #00d9ff;
+  border-radius: 50%;
+  box-shadow: 0 0 18px #00d9ff;
+  height: 10px;
+  width: 10px;
+}
+
+.vote-bar {
+  background: #eef0f8;
+  border-radius: 999px;
+  display: flex;
+  height: 38px;
+  overflow: hidden;
+}
+
+.vote-segment {
+  align-items: center;
+  color: #11131e;
+  display: flex;
+  font-size: 0.9rem;
+  font-weight: 900;
+  justify-content: center;
+  min-width: 46px;
+  transition: width 0.35s ease;
+}
+
+.vote-segment.cyan {
+  background: #00d9ff;
+}
+
+.vote-segment.pink {
+  background: #ff3eb5;
+  color: #ffffff;
+}
+
+.battle-name {
+  color: #ff3eb5;
+  font-weight: 900;
+  margin: 24px 0 0;
+  text-align: center;
+}
+
+.dark-theme .battle-name {
+  color: #00d9ff;
+}
+
+.duration {
+  color: #6b6d7d;
+  font-weight: 700;
+  margin: 0 0 28px;
+}
+
+.dark-theme .duration {
+  color: #b8bfd3;
+}
+
+.dark-theme {
+  color: #f5f7ff;
+}
+
+.dark-theme .theme-toggle {
+  background: #11131e;
+  border-color: #35394c;
+  color: #f5f7ff;
+}
+
+.dark-theme .mood {
+  color: #9fa8c7;
+}
+
+.dark-theme .hero-panel h1,
+.dark-theme .track-card h2,
+.dark-theme .votes,
+.dark-theme .leader-strip {
+  color: #f5f7ff;
+}
+
+.dark-theme .hero-panel p:last-child,
+.dark-theme .artist {
+  color: #b8bfd3;
+}
+
+.dark-theme .track-card {
+  background:
+    radial-gradient(circle at top left, rgba(0, 229, 255, 0.18), transparent 34%),
+    linear-gradient(145deg, #181b2a, #0f111c);
+  border-color: #2d3348;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.38);
+}
+
+.dark-theme .track-card::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+}
+
+.dark-theme .vote-board {
+  background: #11131e;
+  border-color: #2d3348;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .vote-bar {
+  background: #25293a;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes votePulse {
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes badgePulse {
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes dotPulse {
+  50% {
+    opacity: 0.35;
+    transform: scale(1.35);
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 28px 0;
+  }
+
+  .duel-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .track-card {
+    min-height: 320px;
+  }
+}
